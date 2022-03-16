@@ -1,0 +1,680 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HotelOtomasyonModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="TOda">
+    <Key>
+      <PropertyRef Name="OdaID" />
+    </Key>
+    <Property Name="OdaID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OdaNo" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+    <Property Name="Kat" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="Kapasite" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="Aciklama" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Telefon" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="Durum" Type="Byte" />
+    <NavigationProperty Name="TDurum" Relationship="HotelOtomasyonModel.FK_TOda_TDurum" FromRole="TOda" ToRole="TDurum" />
+    <NavigationProperty Name="TRezervasyon" Relationship="HotelOtomasyonModel.FK_TRezervasyon_TOda" FromRole="TOda" ToRole="TRezervasyon" />
+  </EntityType>
+  <EntityType Name="TTelefon">
+    <Key>
+      <PropertyRef Name="TelefonID" />
+    </Key>
+    <Property Name="TelefonID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Aciklama" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Telefon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Durum" Type="Byte" />
+    <NavigationProperty Name="TDurum" Relationship="HotelOtomasyonModel.FK_TTelefon_TDurum" FromRole="TTelefon" ToRole="TDurum" />
+    <NavigationProperty Name="TDurum1" Relationship="HotelOtomasyonModel.FK_TTelefon_TDurum1" FromRole="TTelefon" ToRole="TDurum" />
+  </EntityType>
+  <EntityType Name="TUrunGrup">
+    <Key>
+      <PropertyRef Name="UrunGrupID" />
+    </Key>
+    <Property Name="UrunGrupID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Durum" Type="Byte" />
+    <NavigationProperty Name="TDurum" Relationship="HotelOtomasyonModel.FK_TUrunGrup_TDurum" FromRole="TUrunGrup" ToRole="TDurum" />
+    <NavigationProperty Name="TUrun" Relationship="HotelOtomasyonModel.FK_TUrun_TUrunGrup" FromRole="TUrunGrup" ToRole="TUrun" />
+  </EntityType>
+  <EntityContainer Name="HotelOtomasyonEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="TOda" EntityType="Self.TOda" />
+    <EntitySet Name="TTelefon" EntityType="Self.TTelefon" />
+    <EntitySet Name="TUrunGrup" EntityType="Self.TUrunGrup" />
+    <EntitySet Name="TBirim" EntityType="HotelOtomasyonModel.TBirim" />
+    <EntitySet Name="TDepartman" EntityType="HotelOtomasyonModel.TDepartman" />
+    <EntitySet Name="TDurum" EntityType="HotelOtomasyonModel.TDurum" />
+    <EntitySet Name="TGorev" EntityType="HotelOtomasyonModel.TGorev" />
+    <EntitySet Name="TIl" EntityType="HotelOtomasyonModel.TIl" />
+    <EntitySet Name="TIlce" EntityType="HotelOtomasyonModel.TIlce" />
+    <EntitySet Name="TKasa" EntityType="HotelOtomasyonModel.TKasa" />
+    <EntitySet Name="TKur" EntityType="HotelOtomasyonModel.TKur" />
+    <EntitySet Name="TMisafir" EntityType="HotelOtomasyonModel.TMisafir" />
+    <EntitySet Name="TPersonel" EntityType="HotelOtomasyonModel.TPersonel" />
+    <EntitySet Name="TUlke" EntityType="HotelOtomasyonModel.TUlke" />
+    <AssociationSet Name="FK_TBirim_TDurum" Association="HotelOtomasyonModel.FK_TBirim_TDurum">
+      <End Role="TDurum" EntitySet="TDurum" />
+      <End Role="TBirim" EntitySet="TBirim" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TDepartman_TDurum" Association="HotelOtomasyonModel.FK_TDepartman_TDurum">
+      <End Role="TDurum" EntitySet="TDurum" />
+      <End Role="TDepartman" EntitySet="TDepartman" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TGorev_TDepartman" Association="HotelOtomasyonModel.FK_TGorev_TDepartman">
+      <End Role="TDepartman" EntitySet="TDepartman" />
+      <End Role="TGorev" EntitySet="TGorev" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TPersonel_TDepartman" Association="HotelOtomasyonModel.FK_TPersonel_TDepartman">
+      <End Role="TDepartman" EntitySet="TDepartman" />
+      <End Role="TPersonel" EntitySet="TPersonel" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TGorev_TDurum" Association="HotelOtomasyonModel.FK_TGorev_TDurum">
+      <End Role="TDurum" EntitySet="TDurum" />
+      <End Role="TGorev" EntitySet="TGorev" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TKasa_TDurum" Association="HotelOtomasyonModel.FK_TKasa_TDurum">
+      <End Role="TDurum" EntitySet="TDurum" />
+      <End Role="TKasa" EntitySet="TKasa" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TKur_TDurum" Association="HotelOtomasyonModel.FK_TKur_TDurum">
+      <End Role="TDurum" EntitySet="TDurum" />
+      <End Role="TKur" EntitySet="TKur" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TMisafir_TDurum" Association="HotelOtomasyonModel.FK_TMisafir_TDurum">
+      <End Role="TDurum" EntitySet="TDurum" />
+      <End Role="TMisafir" EntitySet="TMisafir" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TOda_TDurum" Association="HotelOtomasyonModel.FK_TOda_TDurum">
+      <End Role="TDurum" EntitySet="TDurum" />
+      <End Role="TOda" EntitySet="TOda" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TPersonel_TDurum" Association="HotelOtomasyonModel.FK_TPersonel_TDurum">
+      <End Role="TDurum" EntitySet="TDurum" />
+      <End Role="TPersonel" EntitySet="TPersonel" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TTelefon_TDurum" Association="HotelOtomasyonModel.FK_TTelefon_TDurum">
+      <End Role="TDurum" EntitySet="TDurum" />
+      <End Role="TTelefon" EntitySet="TTelefon" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TTelefon_TDurum1" Association="HotelOtomasyonModel.FK_TTelefon_TDurum1">
+      <End Role="TDurum" EntitySet="TDurum" />
+      <End Role="TTelefon" EntitySet="TTelefon" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TUrunGrup_TDurum" Association="HotelOtomasyonModel.FK_TUrunGrup_TDurum">
+      <End Role="TDurum" EntitySet="TDurum" />
+      <End Role="TUrunGrup" EntitySet="TUrunGrup" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TPersonel_TGorev" Association="HotelOtomasyonModel.FK_TPersonel_TGorev">
+      <End Role="TGorev" EntitySet="TGorev" />
+      <End Role="TPersonel" EntitySet="TPersonel" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TIlce_TIl" Association="HotelOtomasyonModel.FK_TIlce_TIl">
+      <End Role="TIl" EntitySet="TIl" />
+      <End Role="TIlce" EntitySet="TIlce" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TMisafir_TIl" Association="HotelOtomasyonModel.FK_TMisafir_TIl">
+      <End Role="TIl" EntitySet="TIl" />
+      <End Role="TMisafir" EntitySet="TMisafir" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TMisafir_TIlce" Association="HotelOtomasyonModel.FK_TMisafir_TIlce">
+      <End Role="TIlce" EntitySet="TIlce" />
+      <End Role="TMisafir" EntitySet="TMisafir" />
+    </AssociationSet>
+    <EntitySet Name="TUrun" EntityType="HotelOtomasyonModel.TUrun" />
+    <AssociationSet Name="FK_TUrun_TBirim" Association="HotelOtomasyonModel.FK_TUrun_TBirim">
+      <End Role="TBirim" EntitySet="TBirim" />
+      <End Role="TUrun" EntitySet="TUrun" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TUrun_TDurum" Association="HotelOtomasyonModel.FK_TUrun_TDurum">
+      <End Role="TDurum" EntitySet="TDurum" />
+      <End Role="TUrun" EntitySet="TUrun" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TUrun_TUrunGrup" Association="HotelOtomasyonModel.FK_TUrun_TUrunGrup">
+      <End Role="TUrunGrup" EntitySet="TUrunGrup" />
+      <End Role="TUrun" EntitySet="TUrun" />
+    </AssociationSet>
+    <EntitySet Name="THareket" EntityType="HotelOtomasyonModel.THareket" />
+    <AssociationSet Name="FK_THareket_TUrun" Association="HotelOtomasyonModel.FK_THareket_TUrun">
+      <End Role="TUrun" EntitySet="TUrun" />
+      <End Role="THareket" EntitySet="THareket" />
+    </AssociationSet>
+    <EntitySet Name="TRezervasyon" EntityType="HotelOtomasyonModel.TRezervasyon" />
+    <AssociationSet Name="FK_TRezervasyon_TDurum" Association="HotelOtomasyonModel.FK_TRezervasyon_TDurum">
+      <End Role="TDurum" EntitySet="TDurum" />
+      <End Role="TRezervasyon" EntitySet="TRezervasyon" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TRezervasyon_TMisafir" Association="HotelOtomasyonModel.FK_TRezervasyon_TMisafir">
+      <End Role="TMisafir" EntitySet="TMisafir" />
+      <End Role="TRezervasyon" EntitySet="TRezervasyon" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TRezervasyon_TOda" Association="HotelOtomasyonModel.FK_TRezervasyon_TOda">
+      <End Role="TOda" EntitySet="TOda" />
+      <End Role="TRezervasyon" EntitySet="TRezervasyon" />
+    </AssociationSet>
+    <EntitySet Name="TKullaniciSite" EntityType="HotelOtomasyonModel.TKullaniciSite" />
+    <EntitySet Name="TKMesajSite" EntityType="HotelOtomasyonModel.TKMesajSite" />
+    <EntitySet Name="TMesajSite" EntityType="HotelOtomasyonModel.TMesajSite" />
+    <FunctionImport Name="OdaDurum" ReturnType="Collection(HotelOtomasyonModel.OdaDurum_Result)" />
+  </EntityContainer>
+  <EntityType Name="TBirim">
+    <Key>
+      <PropertyRef Name="BirimID" />
+    </Key>
+    <Property Name="BirimID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Durum" Type="Byte" />
+    <NavigationProperty Name="TDurum" Relationship="HotelOtomasyonModel.FK_TBirim_TDurum" FromRole="TBirim" ToRole="TDurum" />
+    <NavigationProperty Name="TUrun" Relationship="HotelOtomasyonModel.FK_TUrun_TBirim" FromRole="TBirim" ToRole="TUrun" />
+  </EntityType>
+  <EntityType Name="TDepartman">
+    <Key>
+      <PropertyRef Name="DepartmanID" />
+    </Key>
+    <Property Name="DepartmanID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Telefon" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+    <Property Name="Durum" Type="Byte" />
+    <NavigationProperty Name="TDurum" Relationship="HotelOtomasyonModel.FK_TDepartman_TDurum" FromRole="TDepartman" ToRole="TDurum" />
+    <NavigationProperty Name="TGorev" Relationship="HotelOtomasyonModel.FK_TGorev_TDepartman" FromRole="TDepartman" ToRole="TGorev" />
+    <NavigationProperty Name="TPersonel" Relationship="HotelOtomasyonModel.FK_TPersonel_TDepartman" FromRole="TDepartman" ToRole="TPersonel" />
+  </EntityType>
+  <EntityType Name="TDurum">
+    <Key>
+      <PropertyRef Name="DurumID" />
+    </Key>
+    <Property Name="DurumID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DurumAd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="TBirim" Relationship="HotelOtomasyonModel.FK_TBirim_TDurum" FromRole="TDurum" ToRole="TBirim" />
+    <NavigationProperty Name="TDepartman" Relationship="HotelOtomasyonModel.FK_TDepartman_TDurum" FromRole="TDurum" ToRole="TDepartman" />
+    <NavigationProperty Name="TGorev" Relationship="HotelOtomasyonModel.FK_TGorev_TDurum" FromRole="TDurum" ToRole="TGorev" />
+    <NavigationProperty Name="TKasa" Relationship="HotelOtomasyonModel.FK_TKasa_TDurum" FromRole="TDurum" ToRole="TKasa" />
+    <NavigationProperty Name="TKur" Relationship="HotelOtomasyonModel.FK_TKur_TDurum" FromRole="TDurum" ToRole="TKur" />
+    <NavigationProperty Name="TMisafir" Relationship="HotelOtomasyonModel.FK_TMisafir_TDurum" FromRole="TDurum" ToRole="TMisafir" />
+    <NavigationProperty Name="TOda" Relationship="HotelOtomasyonModel.FK_TOda_TDurum" FromRole="TDurum" ToRole="TOda" />
+    <NavigationProperty Name="TPersonel" Relationship="HotelOtomasyonModel.FK_TPersonel_TDurum" FromRole="TDurum" ToRole="TPersonel" />
+    <NavigationProperty Name="TTelefon" Relationship="HotelOtomasyonModel.FK_TTelefon_TDurum" FromRole="TDurum" ToRole="TTelefon" />
+    <NavigationProperty Name="TTelefon1" Relationship="HotelOtomasyonModel.FK_TTelefon_TDurum1" FromRole="TDurum" ToRole="TTelefon" />
+    <NavigationProperty Name="TUrunGrup" Relationship="HotelOtomasyonModel.FK_TUrunGrup_TDurum" FromRole="TDurum" ToRole="TUrunGrup" />
+    <NavigationProperty Name="TUrun" Relationship="HotelOtomasyonModel.FK_TUrun_TDurum" FromRole="TDurum" ToRole="TUrun" />
+    <NavigationProperty Name="TRezervasyon" Relationship="HotelOtomasyonModel.FK_TRezervasyon_TDurum" FromRole="TDurum" ToRole="TRezervasyon" />
+  </EntityType>
+  <EntityType Name="TGorev">
+    <Key>
+      <PropertyRef Name="GorevID" />
+    </Key>
+    <Property Name="GorevID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GorevAd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Departman" Type="Byte" />
+    <Property Name="Durum" Type="Byte" />
+    <NavigationProperty Name="TDepartman" Relationship="HotelOtomasyonModel.FK_TGorev_TDepartman" FromRole="TGorev" ToRole="TDepartman" />
+    <NavigationProperty Name="TDurum" Relationship="HotelOtomasyonModel.FK_TGorev_TDurum" FromRole="TGorev" ToRole="TDurum" />
+    <NavigationProperty Name="TPersonel" Relationship="HotelOtomasyonModel.FK_TPersonel_TGorev" FromRole="TGorev" ToRole="TPersonel" />
+  </EntityType>
+  <EntityType Name="TIl">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Sehir" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="TIlce" Relationship="HotelOtomasyonModel.FK_TIlce_TIl" FromRole="TIl" ToRole="TIlce" />
+    <NavigationProperty Name="TMisafir" Relationship="HotelOtomasyonModel.FK_TMisafir_TIl" FromRole="TIl" ToRole="TMisafir" />
+  </EntityType>
+  <EntityType Name="TIlce">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ilce" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Sehir" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="TIl" Relationship="HotelOtomasyonModel.FK_TIlce_TIl" FromRole="TIlce" ToRole="TIl" />
+    <NavigationProperty Name="TMisafir" Relationship="HotelOtomasyonModel.FK_TMisafir_TIlce" FromRole="TIlce" ToRole="TMisafir" />
+  </EntityType>
+  <EntityType Name="TKasa">
+    <Key>
+      <PropertyRef Name="KasaID" />
+    </Key>
+    <Property Name="KasaID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KasaAd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Bakiye" Type="Decimal" Precision="7" Scale="3" />
+    <Property Name="Giren" Type="Decimal" Precision="7" Scale="3" />
+    <Property Name="Cikan" Type="Decimal" Precision="7" Scale="3" />
+    <Property Name="Durum" Type="Byte" />
+    <NavigationProperty Name="TDurum" Relationship="HotelOtomasyonModel.FK_TKasa_TDurum" FromRole="TKasa" ToRole="TDurum" />
+  </EntityType>
+  <EntityType Name="TKur">
+    <Key>
+      <PropertyRef Name="KurID" />
+    </Key>
+    <Property Name="KurID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Sembol" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <Property Name="Deger" Type="Decimal" Precision="8" Scale="4" />
+    <Property Name="Tarih" Type="DateTime" Precision="0" />
+    <Property Name="Durum" Type="Byte" />
+    <NavigationProperty Name="TDurum" Relationship="HotelOtomasyonModel.FK_TKur_TDurum" FromRole="TKur" ToRole="TDurum" />
+  </EntityType>
+  <EntityType Name="TMisafir">
+    <Key>
+      <PropertyRef Name="MisafirID" />
+    </Key>
+    <Property Name="MisafirID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TC" Type="String" MaxLength="11" FixedLength="true" Unicode="false" />
+    <Property Name="Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Telefon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Adres" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Aciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="KimlikFoto1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="KimlikFoto2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Ulke" Type="Byte" />
+    <Property Name="Sehir" Type="Int32" />
+    <Property Name="Ilce" Type="Int32" />
+    <Property Name="Durum" Type="Byte" />
+    <NavigationProperty Name="TDurum" Relationship="HotelOtomasyonModel.FK_TMisafir_TDurum" FromRole="TMisafir" ToRole="TDurum" />
+    <NavigationProperty Name="TIl" Relationship="HotelOtomasyonModel.FK_TMisafir_TIl" FromRole="TMisafir" ToRole="TIl" />
+    <NavigationProperty Name="TIlce" Relationship="HotelOtomasyonModel.FK_TMisafir_TIlce" FromRole="TMisafir" ToRole="TIlce" />
+    <NavigationProperty Name="TRezervasyon" Relationship="HotelOtomasyonModel.FK_TRezervasyon_TMisafir" FromRole="TMisafir" ToRole="TRezervasyon" />
+  </EntityType>
+  <EntityType Name="TPersonel">
+    <Key>
+      <PropertyRef Name="PersonelID" />
+    </Key>
+    <Property Name="PersonelID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Personel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="TC" Type="String" MaxLength="11" FixedLength="true" Unicode="false" />
+    <Property Name="Adres" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Telefon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="GirisTarih" Type="DateTime" Precision="0" />
+    <Property Name="CikisTarih" Type="DateTime" Precision="0" />
+    <Property Name="Departman" Type="Byte" />
+    <Property Name="Gorev" Type="Byte" />
+    <Property Name="Aciklama" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="KimlikOn" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="KimlikArka" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Yetki" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="Sifre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Durum" Type="Byte" />
+    <NavigationProperty Name="TDepartman" Relationship="HotelOtomasyonModel.FK_TPersonel_TDepartman" FromRole="TPersonel" ToRole="TDepartman" />
+    <NavigationProperty Name="TDurum" Relationship="HotelOtomasyonModel.FK_TPersonel_TDurum" FromRole="TPersonel" ToRole="TDurum" />
+    <NavigationProperty Name="TGorev" Relationship="HotelOtomasyonModel.FK_TPersonel_TGorev" FromRole="TPersonel" ToRole="TGorev" />
+  </EntityType>
+  <EntityType Name="TUlke">
+    <Key>
+      <PropertyRef Name="UlkeID" />
+    </Key>
+    <Property Name="UlkeID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UlkeAd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_TBirim_TDurum">
+    <End Type="HotelOtomasyonModel.TDurum" Role="TDurum" Multiplicity="0..1" />
+    <End Type="HotelOtomasyonModel.TBirim" Role="TBirim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TDurum">
+        <PropertyRef Name="DurumID" />
+      </Principal>
+      <Dependent Role="TBirim">
+        <PropertyRef Name="Durum" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TDepartman_TDurum">
+    <End Type="HotelOtomasyonModel.TDurum" Role="TDurum" Multiplicity="0..1" />
+    <End Type="HotelOtomasyonModel.TDepartman" Role="TDepartman" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TDurum">
+        <PropertyRef Name="DurumID" />
+      </Principal>
+      <Dependent Role="TDepartman">
+        <PropertyRef Name="Durum" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TGorev_TDepartman">
+    <End Type="HotelOtomasyonModel.TDepartman" Role="TDepartman" Multiplicity="0..1" />
+    <End Type="HotelOtomasyonModel.TGorev" Role="TGorev" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TDepartman">
+        <PropertyRef Name="DepartmanID" />
+      </Principal>
+      <Dependent Role="TGorev">
+        <PropertyRef Name="Departman" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TPersonel_TDepartman">
+    <End Type="HotelOtomasyonModel.TDepartman" Role="TDepartman" Multiplicity="0..1" />
+    <End Type="HotelOtomasyonModel.TPersonel" Role="TPersonel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TDepartman">
+        <PropertyRef Name="DepartmanID" />
+      </Principal>
+      <Dependent Role="TPersonel">
+        <PropertyRef Name="Departman" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TGorev_TDurum">
+    <End Type="HotelOtomasyonModel.TDurum" Role="TDurum" Multiplicity="0..1" />
+    <End Type="HotelOtomasyonModel.TGorev" Role="TGorev" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TDurum">
+        <PropertyRef Name="DurumID" />
+      </Principal>
+      <Dependent Role="TGorev">
+        <PropertyRef Name="Durum" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TKasa_TDurum">
+    <End Type="HotelOtomasyonModel.TDurum" Role="TDurum" Multiplicity="0..1" />
+    <End Type="HotelOtomasyonModel.TKasa" Role="TKasa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TDurum">
+        <PropertyRef Name="DurumID" />
+      </Principal>
+      <Dependent Role="TKasa">
+        <PropertyRef Name="Durum" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TKur_TDurum">
+    <End Type="HotelOtomasyonModel.TDurum" Role="TDurum" Multiplicity="0..1" />
+    <End Type="HotelOtomasyonModel.TKur" Role="TKur" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TDurum">
+        <PropertyRef Name="DurumID" />
+      </Principal>
+      <Dependent Role="TKur">
+        <PropertyRef Name="Durum" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TMisafir_TDurum">
+    <End Type="HotelOtomasyonModel.TDurum" Role="TDurum" Multiplicity="0..1" />
+    <End Type="HotelOtomasyonModel.TMisafir" Role="TMisafir" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TDurum">
+        <PropertyRef Name="DurumID" />
+      </Principal>
+      <Dependent Role="TMisafir">
+        <PropertyRef Name="Durum" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TOda_TDurum">
+    <End Type="HotelOtomasyonModel.TDurum" Role="TDurum" Multiplicity="0..1" />
+    <End Type="HotelOtomasyonModel.TOda" Role="TOda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TDurum">
+        <PropertyRef Name="DurumID" />
+      </Principal>
+      <Dependent Role="TOda">
+        <PropertyRef Name="Durum" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TPersonel_TDurum">
+    <End Type="HotelOtomasyonModel.TDurum" Role="TDurum" Multiplicity="0..1" />
+    <End Type="HotelOtomasyonModel.TPersonel" Role="TPersonel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TDurum">
+        <PropertyRef Name="DurumID" />
+      </Principal>
+      <Dependent Role="TPersonel">
+        <PropertyRef Name="Durum" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TTelefon_TDurum">
+    <End Type="HotelOtomasyonModel.TDurum" Role="TDurum" Multiplicity="0..1" />
+    <End Type="HotelOtomasyonModel.TTelefon" Role="TTelefon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TDurum">
+        <PropertyRef Name="DurumID" />
+      </Principal>
+      <Dependent Role="TTelefon">
+        <PropertyRef Name="Durum" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TTelefon_TDurum1">
+    <End Type="HotelOtomasyonModel.TDurum" Role="TDurum" Multiplicity="0..1" />
+    <End Type="HotelOtomasyonModel.TTelefon" Role="TTelefon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TDurum">
+        <PropertyRef Name="DurumID" />
+      </Principal>
+      <Dependent Role="TTelefon">
+        <PropertyRef Name="Durum" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TUrunGrup_TDurum">
+    <End Type="HotelOtomasyonModel.TDurum" Role="TDurum" Multiplicity="0..1" />
+    <End Type="HotelOtomasyonModel.TUrunGrup" Role="TUrunGrup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TDurum">
+        <PropertyRef Name="DurumID" />
+      </Principal>
+      <Dependent Role="TUrunGrup">
+        <PropertyRef Name="Durum" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TPersonel_TGorev">
+    <End Type="HotelOtomasyonModel.TGorev" Role="TGorev" Multiplicity="0..1" />
+    <End Type="HotelOtomasyonModel.TPersonel" Role="TPersonel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TGorev">
+        <PropertyRef Name="GorevID" />
+      </Principal>
+      <Dependent Role="TPersonel">
+        <PropertyRef Name="Gorev" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TIlce_TIl">
+    <End Type="HotelOtomasyonModel.TIl" Role="TIl" Multiplicity="1" />
+    <End Type="HotelOtomasyonModel.TIlce" Role="TIlce" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TIl">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TIlce">
+        <PropertyRef Name="Sehir" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TMisafir_TIl">
+    <End Type="HotelOtomasyonModel.TIl" Role="TIl" Multiplicity="0..1" />
+    <End Type="HotelOtomasyonModel.TMisafir" Role="TMisafir" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TIl">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TMisafir">
+        <PropertyRef Name="Sehir" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TMisafir_TIlce">
+    <End Type="HotelOtomasyonModel.TIlce" Role="TIlce" Multiplicity="0..1" />
+    <End Type="HotelOtomasyonModel.TMisafir" Role="TMisafir" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TIlce">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TMisafir">
+        <PropertyRef Name="Ilce" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="TUrun">
+    <Key>
+      <PropertyRef Name="UrunID" />
+    </Key>
+    <Property Name="UrunID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Urun" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UrunGrup" Type="Byte" />
+    <Property Name="Birim" Type="Byte" />
+    <Property Name="Fiyat" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="Toplam" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="Kdv" Type="Byte" />
+    <Property Name="Durum" Type="Byte" />
+    <NavigationProperty Name="TBirim" Relationship="HotelOtomasyonModel.FK_TUrun_TBirim" FromRole="TUrun" ToRole="TBirim" />
+    <NavigationProperty Name="TDurum" Relationship="HotelOtomasyonModel.FK_TUrun_TDurum" FromRole="TUrun" ToRole="TDurum" />
+    <NavigationProperty Name="TUrunGrup" Relationship="HotelOtomasyonModel.FK_TUrun_TUrunGrup" FromRole="TUrun" ToRole="TUrunGrup" />
+    <NavigationProperty Name="THareket" Relationship="HotelOtomasyonModel.FK_THareket_TUrun" FromRole="TUrun" ToRole="THareket" />
+  </EntityType>
+  <Association Name="FK_TUrun_TBirim">
+    <End Type="HotelOtomasyonModel.TBirim" Role="TBirim" Multiplicity="0..1" />
+    <End Type="HotelOtomasyonModel.TUrun" Role="TUrun" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBirim">
+        <PropertyRef Name="BirimID" />
+      </Principal>
+      <Dependent Role="TUrun">
+        <PropertyRef Name="Birim" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TUrun_TDurum">
+    <End Type="HotelOtomasyonModel.TDurum" Role="TDurum" Multiplicity="0..1" />
+    <End Type="HotelOtomasyonModel.TUrun" Role="TUrun" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TDurum">
+        <PropertyRef Name="DurumID" />
+      </Principal>
+      <Dependent Role="TUrun">
+        <PropertyRef Name="Durum" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TUrun_TUrunGrup">
+    <End Type="HotelOtomasyonModel.TUrunGrup" Role="TUrunGrup" Multiplicity="0..1" />
+    <End Type="HotelOtomasyonModel.TUrun" Role="TUrun" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TUrunGrup">
+        <PropertyRef Name="UrunGrupID" />
+      </Principal>
+      <Dependent Role="TUrun">
+        <PropertyRef Name="UrunGrup" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="THareket">
+    <Key>
+      <PropertyRef Name="HareketID" />
+    </Key>
+    <Property Name="HareketID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Urun" Type="Byte" />
+    <Property Name="HareketTur" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Name="Miktar" Type="Decimal" Precision="5" Scale="2" />
+    <Property Name="Tarih" Type="DateTime" Precision="3" />
+    <Property Name="Aciklama" Type="String" MaxLength="1500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TUrun" Relationship="HotelOtomasyonModel.FK_THareket_TUrun" FromRole="THareket" ToRole="TUrun" />
+  </EntityType>
+  <Association Name="FK_THareket_TUrun">
+    <End Type="HotelOtomasyonModel.TUrun" Role="TUrun" Multiplicity="0..1" />
+    <End Type="HotelOtomasyonModel.THareket" Role="THareket" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TUrun">
+        <PropertyRef Name="UrunID" />
+      </Principal>
+      <Dependent Role="THareket">
+        <PropertyRef Name="Urun" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="TRezervasyon">
+    <Key>
+      <PropertyRef Name="RezervasyonID" />
+    </Key>
+    <Property Name="RezervasyonID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Misafir" Type="Byte" />
+    <Property Name="GirisTarih" Type="DateTime" Precision="0" />
+    <Property Name="CikisTarih" Type="DateTime" Precision="0" />
+    <Property Name="Kisi" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="Oda" Type="Byte" />
+    <Property Name="RezervasyonKisi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Telefon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Aciklama" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Durum" Type="Byte" />
+    <NavigationProperty Name="TDurum" Relationship="HotelOtomasyonModel.FK_TRezervasyon_TDurum" FromRole="TRezervasyon" ToRole="TDurum" />
+    <NavigationProperty Name="TMisafir" Relationship="HotelOtomasyonModel.FK_TRezervasyon_TMisafir" FromRole="TRezervasyon" ToRole="TMisafir" />
+    <NavigationProperty Name="TOda" Relationship="HotelOtomasyonModel.FK_TRezervasyon_TOda" FromRole="TRezervasyon" ToRole="TOda" />
+    <Property Name="Kisi2" Type="Int32" />
+    <Property Name="Kisi3" Type="Int32" />
+    <Property Name="Kisi4" Type="Int32" />
+  </EntityType>
+  <Association Name="FK_TRezervasyon_TDurum">
+    <End Type="HotelOtomasyonModel.TDurum" Role="TDurum" Multiplicity="0..1" />
+    <End Type="HotelOtomasyonModel.TRezervasyon" Role="TRezervasyon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TDurum">
+        <PropertyRef Name="DurumID" />
+      </Principal>
+      <Dependent Role="TRezervasyon">
+        <PropertyRef Name="Durum" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TRezervasyon_TMisafir">
+    <End Type="HotelOtomasyonModel.TMisafir" Role="TMisafir" Multiplicity="0..1" />
+    <End Type="HotelOtomasyonModel.TRezervasyon" Role="TRezervasyon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TMisafir">
+        <PropertyRef Name="MisafirID" />
+      </Principal>
+      <Dependent Role="TRezervasyon">
+        <PropertyRef Name="Misafir" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TRezervasyon_TOda">
+    <End Type="HotelOtomasyonModel.TOda" Role="TOda" Multiplicity="0..1" />
+    <End Type="HotelOtomasyonModel.TRezervasyon" Role="TRezervasyon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TOda">
+        <PropertyRef Name="OdaID" />
+      </Principal>
+      <Dependent Role="TRezervasyon">
+        <PropertyRef Name="Oda" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="TKullaniciSite">
+    <Key>
+      <PropertyRef Name="KullaniciID" />
+    </Key>
+    <Property Name="KullaniciID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="İsim" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Telefon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Parola" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="TKMesajSite">
+    <Key>
+      <PropertyRef Name="MesajID" />
+    </Key>
+    <Property Name="MesajID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Alici" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Gonderen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Konu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Mesaj" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Tarih" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="TMesajSite">
+    <Key>
+      <PropertyRef Name="MesajID" />
+    </Key>
+    <Property Name="MesajID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Gonderen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Mail" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Konu" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Mesaj" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <ComplexType Name="OdaDurum_Result">
+    <Property Type="String" Name="DurumAd" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Sayı" Nullable="true" />
+  </ComplexType>
+</Schema>

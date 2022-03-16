@@ -1,0 +1,628 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HotelOtomasyonModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="TBirim">
+    <Key>
+      <PropertyRef Name="BirimID" />
+    </Key>
+    <Property Name="BirimID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ad" Type="nvarchar" MaxLength="50" />
+    <Property Name="Durum" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="TDepartman">
+    <Key>
+      <PropertyRef Name="DepartmanID" />
+    </Key>
+    <Property Name="DepartmanID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ad" Type="nvarchar" MaxLength="50" />
+    <Property Name="Telefon" Type="char" MaxLength="4" />
+    <Property Name="Durum" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="TDurum">
+    <Key>
+      <PropertyRef Name="DurumID" />
+    </Key>
+    <Property Name="DurumID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DurumAd" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TGorev">
+    <Key>
+      <PropertyRef Name="GorevID" />
+    </Key>
+    <Property Name="GorevID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GorevAd" Type="nvarchar" MaxLength="50" />
+    <Property Name="Departman" Type="tinyint" />
+    <Property Name="Durum" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="THareket">
+    <Key>
+      <PropertyRef Name="HareketID" />
+    </Key>
+    <Property Name="HareketID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Urun" Type="tinyint" />
+    <Property Name="HareketTur" Type="varchar" MaxLength="5" />
+    <Property Name="Miktar" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="Tarih" Type="datetime" />
+    <Property Name="Aciklama" Type="varchar" MaxLength="1500" />
+  </EntityType>
+  <EntityType Name="TIl">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Sehir" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="TIlce">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ilce" Type="nvarchar" MaxLength="255" />
+    <Property Name="Sehir" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TKasa">
+    <Key>
+      <PropertyRef Name="KasaID" />
+    </Key>
+    <Property Name="KasaID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="KasaAd" Type="nvarchar" MaxLength="50" />
+    <Property Name="Bakiye" Type="decimal" Precision="7" Scale="3" />
+    <Property Name="Giren" Type="decimal" Precision="7" Scale="3" />
+    <Property Name="Cikan" Type="decimal" Precision="7" Scale="3" />
+    <Property Name="Durum" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="TKMesajSite">
+    <Key>
+      <PropertyRef Name="MesajID" />
+    </Key>
+    <Property Name="MesajID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Alici" Type="varchar" MaxLength="50" />
+    <Property Name="Gonderen" Type="varchar" MaxLength="50" />
+    <Property Name="Konu" Type="varchar" MaxLength="50" />
+    <Property Name="Mesaj" Type="varchar" MaxLength="150" />
+    <Property Name="Tarih" Type="date" />
+  </EntityType>
+  <EntityType Name="TKullaniciSite">
+    <Key>
+      <PropertyRef Name="KullaniciID" />
+    </Key>
+    <Property Name="KullaniciID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="İsim" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="Telefon" Type="varchar" MaxLength="50" />
+    <Property Name="Parola" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TKur">
+    <Key>
+      <PropertyRef Name="KurID" />
+    </Key>
+    <Property Name="KurID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ad" Type="nvarchar" MaxLength="50" />
+    <Property Name="Sembol" Type="nvarchar" MaxLength="1" />
+    <Property Name="Deger" Type="decimal" Precision="8" Scale="4" />
+    <Property Name="Tarih" Type="date" />
+    <Property Name="Durum" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="TMesajSite">
+    <Key>
+      <PropertyRef Name="MesajID" />
+    </Key>
+    <Property Name="MesajID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Gonderen" Type="varchar" MaxLength="50" />
+    <Property Name="Mail" Type="varchar" MaxLength="150" />
+    <Property Name="Konu" Type="varchar" MaxLength="150" />
+    <Property Name="Mesaj" Type="varchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="TMisafir">
+    <Key>
+      <PropertyRef Name="MisafirID" />
+    </Key>
+    <Property Name="MisafirID" Type="tinyint" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Ad" Type="nvarchar" MaxLength="50" />
+    <Property Name="TC" Type="char" MaxLength="11" />
+    <Property Name="Mail" Type="nvarchar" MaxLength="50" />
+    <Property Name="Telefon" Type="nvarchar" MaxLength="50" />
+    <Property Name="Adres" Type="nvarchar(max)" />
+    <Property Name="Aciklama" Type="nvarchar(max)" />
+    <Property Name="KimlikFoto1" Type="nvarchar" MaxLength="100" />
+    <Property Name="KimlikFoto2" Type="nvarchar" MaxLength="100" />
+    <Property Name="Ulke" Type="tinyint" />
+    <Property Name="Sehir" Type="int" />
+    <Property Name="Ilce" Type="int" />
+    <Property Name="Durum" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="TOda">
+    <Key>
+      <PropertyRef Name="OdaID" />
+    </Key>
+    <Property Name="OdaID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="OdaNo" Type="char" MaxLength="3" />
+    <Property Name="Kat" Type="char" MaxLength="1" />
+    <Property Name="Kapasite" Type="char" MaxLength="1" />
+    <Property Name="Aciklama" Type="nvarchar" MaxLength="50" />
+    <Property Name="Telefon" Type="char" MaxLength="4" />
+    <Property Name="Durum" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="TPersonel">
+    <Key>
+      <PropertyRef Name="PersonelID" />
+    </Key>
+    <Property Name="PersonelID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Personel" Type="nvarchar" MaxLength="50" />
+    <Property Name="TC" Type="char" MaxLength="11" />
+    <Property Name="Adres" Type="nvarchar" MaxLength="50" />
+    <Property Name="Telefon" Type="nvarchar" MaxLength="50" />
+    <Property Name="Mail" Type="nvarchar" MaxLength="50" />
+    <Property Name="GirisTarih" Type="date" />
+    <Property Name="CikisTarih" Type="date" />
+    <Property Name="Departman" Type="tinyint" />
+    <Property Name="Gorev" Type="tinyint" />
+    <Property Name="Aciklama" Type="nvarchar" MaxLength="50" />
+    <Property Name="KimlikOn" Type="varchar" MaxLength="150" />
+    <Property Name="KimlikArka" Type="varchar" MaxLength="150" />
+    <Property Name="Yetki" Type="char" MaxLength="1" />
+    <Property Name="Sifre" Type="varchar" MaxLength="50" />
+    <Property Name="Durum" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="TRezervasyon">
+    <Key>
+      <PropertyRef Name="RezervasyonID" />
+    </Key>
+    <Property Name="RezervasyonID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Misafir" Type="tinyint" />
+    <Property Name="GirisTarih" Type="date" />
+    <Property Name="CikisTarih" Type="date" />
+    <Property Name="Kisi" Type="char" MaxLength="1" />
+    <Property Name="Oda" Type="tinyint" />
+    <Property Name="RezervasyonKisi" Type="varchar" MaxLength="50" />
+    <Property Name="Kisi2" Type="int" />
+    <Property Name="Kisi3" Type="int" />
+    <Property Name="Kisi4" Type="int" />
+    <Property Name="Telefon" Type="varchar" MaxLength="50" />
+    <Property Name="Aciklama" Type="varchar" MaxLength="500" />
+    <Property Name="Durum" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="TTelefon">
+    <Key>
+      <PropertyRef Name="TelefonID" />
+    </Key>
+    <Property Name="TelefonID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Aciklama" Type="nvarchar" MaxLength="50" />
+    <Property Name="Telefon" Type="nvarchar" MaxLength="50" />
+    <Property Name="Durum" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="TUlke">
+    <Key>
+      <PropertyRef Name="UlkeID" />
+    </Key>
+    <Property Name="UlkeID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UlkeAd" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TUrun">
+    <Key>
+      <PropertyRef Name="UrunID" />
+    </Key>
+    <Property Name="UrunID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Urun" Type="nvarchar" MaxLength="50" />
+    <Property Name="UrunGrup" Type="tinyint" />
+    <Property Name="Birim" Type="tinyint" />
+    <Property Name="Fiyat" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="Toplam" Type="decimal" Precision="5" Scale="2" />
+    <Property Name="Kdv" Type="tinyint" />
+    <Property Name="Durum" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="TUrunGrup">
+    <Key>
+      <PropertyRef Name="UrunGrupID" />
+    </Key>
+    <Property Name="UrunGrupID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ad" Type="nvarchar" MaxLength="50" />
+    <Property Name="Durum" Type="tinyint" />
+  </EntityType>
+  <Association Name="FK_TBirim_TDurum">
+    <End Role="TDurum" Type="Self.TDurum" Multiplicity="0..1" />
+    <End Role="TBirim" Type="Self.TBirim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TDurum">
+        <PropertyRef Name="DurumID" />
+      </Principal>
+      <Dependent Role="TBirim">
+        <PropertyRef Name="Durum" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TDepartman_TDurum">
+    <End Role="TDurum" Type="Self.TDurum" Multiplicity="0..1" />
+    <End Role="TDepartman" Type="Self.TDepartman" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TDurum">
+        <PropertyRef Name="DurumID" />
+      </Principal>
+      <Dependent Role="TDepartman">
+        <PropertyRef Name="Durum" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TGorev_TDepartman">
+    <End Role="TDepartman" Type="Self.TDepartman" Multiplicity="0..1" />
+    <End Role="TGorev" Type="Self.TGorev" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TDepartman">
+        <PropertyRef Name="DepartmanID" />
+      </Principal>
+      <Dependent Role="TGorev">
+        <PropertyRef Name="Departman" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TGorev_TDurum">
+    <End Role="TDurum" Type="Self.TDurum" Multiplicity="0..1" />
+    <End Role="TGorev" Type="Self.TGorev" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TDurum">
+        <PropertyRef Name="DurumID" />
+      </Principal>
+      <Dependent Role="TGorev">
+        <PropertyRef Name="Durum" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_THareket_TUrun">
+    <End Role="TUrun" Type="Self.TUrun" Multiplicity="0..1" />
+    <End Role="THareket" Type="Self.THareket" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TUrun">
+        <PropertyRef Name="UrunID" />
+      </Principal>
+      <Dependent Role="THareket">
+        <PropertyRef Name="Urun" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TIlce_TIl">
+    <End Role="TIl" Type="Self.TIl" Multiplicity="1" />
+    <End Role="TIlce" Type="Self.TIlce" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TIl">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TIlce">
+        <PropertyRef Name="Sehir" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TKasa_TDurum">
+    <End Role="TDurum" Type="Self.TDurum" Multiplicity="0..1" />
+    <End Role="TKasa" Type="Self.TKasa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TDurum">
+        <PropertyRef Name="DurumID" />
+      </Principal>
+      <Dependent Role="TKasa">
+        <PropertyRef Name="Durum" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TKur_TDurum">
+    <End Role="TDurum" Type="Self.TDurum" Multiplicity="0..1" />
+    <End Role="TKur" Type="Self.TKur" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TDurum">
+        <PropertyRef Name="DurumID" />
+      </Principal>
+      <Dependent Role="TKur">
+        <PropertyRef Name="Durum" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TMisafir_TDurum">
+    <End Role="TDurum" Type="Self.TDurum" Multiplicity="0..1" />
+    <End Role="TMisafir" Type="Self.TMisafir" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TDurum">
+        <PropertyRef Name="DurumID" />
+      </Principal>
+      <Dependent Role="TMisafir">
+        <PropertyRef Name="Durum" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TMisafir_TIl">
+    <End Role="TIl" Type="Self.TIl" Multiplicity="0..1" />
+    <End Role="TMisafir" Type="Self.TMisafir" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TIl">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TMisafir">
+        <PropertyRef Name="Sehir" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TMisafir_TIlce">
+    <End Role="TIlce" Type="Self.TIlce" Multiplicity="0..1" />
+    <End Role="TMisafir" Type="Self.TMisafir" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TIlce">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TMisafir">
+        <PropertyRef Name="Ilce" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TOda_TDurum">
+    <End Role="TDurum" Type="Self.TDurum" Multiplicity="0..1" />
+    <End Role="TOda" Type="Self.TOda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TDurum">
+        <PropertyRef Name="DurumID" />
+      </Principal>
+      <Dependent Role="TOda">
+        <PropertyRef Name="Durum" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TPersonel_TDepartman">
+    <End Role="TDepartman" Type="Self.TDepartman" Multiplicity="0..1" />
+    <End Role="TPersonel" Type="Self.TPersonel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TDepartman">
+        <PropertyRef Name="DepartmanID" />
+      </Principal>
+      <Dependent Role="TPersonel">
+        <PropertyRef Name="Departman" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TPersonel_TDurum">
+    <End Role="TDurum" Type="Self.TDurum" Multiplicity="0..1" />
+    <End Role="TPersonel" Type="Self.TPersonel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TDurum">
+        <PropertyRef Name="DurumID" />
+      </Principal>
+      <Dependent Role="TPersonel">
+        <PropertyRef Name="Durum" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TPersonel_TGorev">
+    <End Role="TGorev" Type="Self.TGorev" Multiplicity="0..1" />
+    <End Role="TPersonel" Type="Self.TPersonel" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TGorev">
+        <PropertyRef Name="GorevID" />
+      </Principal>
+      <Dependent Role="TPersonel">
+        <PropertyRef Name="Gorev" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TRezervasyon_TDurum">
+    <End Role="TDurum" Type="Self.TDurum" Multiplicity="0..1" />
+    <End Role="TRezervasyon" Type="Self.TRezervasyon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TDurum">
+        <PropertyRef Name="DurumID" />
+      </Principal>
+      <Dependent Role="TRezervasyon">
+        <PropertyRef Name="Durum" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TRezervasyon_TMisafir">
+    <End Role="TMisafir" Type="Self.TMisafir" Multiplicity="0..1" />
+    <End Role="TRezervasyon" Type="Self.TRezervasyon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TMisafir">
+        <PropertyRef Name="MisafirID" />
+      </Principal>
+      <Dependent Role="TRezervasyon">
+        <PropertyRef Name="Misafir" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TRezervasyon_TOda">
+    <End Role="TOda" Type="Self.TOda" Multiplicity="0..1" />
+    <End Role="TRezervasyon" Type="Self.TRezervasyon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TOda">
+        <PropertyRef Name="OdaID" />
+      </Principal>
+      <Dependent Role="TRezervasyon">
+        <PropertyRef Name="Oda" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TTelefon_TDurum">
+    <End Role="TDurum" Type="Self.TDurum" Multiplicity="0..1" />
+    <End Role="TTelefon" Type="Self.TTelefon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TDurum">
+        <PropertyRef Name="DurumID" />
+      </Principal>
+      <Dependent Role="TTelefon">
+        <PropertyRef Name="Durum" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TTelefon_TDurum1">
+    <End Role="TDurum" Type="Self.TDurum" Multiplicity="0..1" />
+    <End Role="TTelefon" Type="Self.TTelefon" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TDurum">
+        <PropertyRef Name="DurumID" />
+      </Principal>
+      <Dependent Role="TTelefon">
+        <PropertyRef Name="Durum" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TUrun_TBirim">
+    <End Role="TBirim" Type="Self.TBirim" Multiplicity="0..1" />
+    <End Role="TUrun" Type="Self.TUrun" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TBirim">
+        <PropertyRef Name="BirimID" />
+      </Principal>
+      <Dependent Role="TUrun">
+        <PropertyRef Name="Birim" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TUrun_TDurum">
+    <End Role="TDurum" Type="Self.TDurum" Multiplicity="0..1" />
+    <End Role="TUrun" Type="Self.TUrun" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TDurum">
+        <PropertyRef Name="DurumID" />
+      </Principal>
+      <Dependent Role="TUrun">
+        <PropertyRef Name="Durum" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TUrun_TUrunGrup">
+    <End Role="TUrunGrup" Type="Self.TUrunGrup" Multiplicity="0..1" />
+    <End Role="TUrun" Type="Self.TUrun" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TUrunGrup">
+        <PropertyRef Name="UrunGrupID" />
+      </Principal>
+      <Dependent Role="TUrun">
+        <PropertyRef Name="UrunGrup" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TUrunGrup_TDurum">
+    <End Role="TDurum" Type="Self.TDurum" Multiplicity="0..1" />
+    <End Role="TUrunGrup" Type="Self.TUrunGrup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TDurum">
+        <PropertyRef Name="DurumID" />
+      </Principal>
+      <Dependent Role="TUrunGrup">
+        <PropertyRef Name="Durum" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="OdaDurum" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="HotelOtomasyonModelStoreContainer">
+    <EntitySet Name="TBirim" EntityType="Self.TBirim" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TDepartman" EntityType="Self.TDepartman" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TDurum" EntityType="Self.TDurum" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TGorev" EntityType="Self.TGorev" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="THareket" EntityType="Self.THareket" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TIl" EntityType="Self.TIl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TIlce" EntityType="Self.TIlce" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TKasa" EntityType="Self.TKasa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TKMesajSite" EntityType="Self.TKMesajSite" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TKullaniciSite" EntityType="Self.TKullaniciSite" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TKur" EntityType="Self.TKur" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TMesajSite" EntityType="Self.TMesajSite" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TMisafir" EntityType="Self.TMisafir" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TOda" EntityType="Self.TOda" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TPersonel" EntityType="Self.TPersonel" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TRezervasyon" EntityType="Self.TRezervasyon" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TTelefon" EntityType="Self.TTelefon" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TUlke" EntityType="Self.TUlke" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TUrun" EntityType="Self.TUrun" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TUrunGrup" EntityType="Self.TUrunGrup" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_TBirim_TDurum" Association="Self.FK_TBirim_TDurum">
+      <End Role="TDurum" EntitySet="TDurum" />
+      <End Role="TBirim" EntitySet="TBirim" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TDepartman_TDurum" Association="Self.FK_TDepartman_TDurum">
+      <End Role="TDurum" EntitySet="TDurum" />
+      <End Role="TDepartman" EntitySet="TDepartman" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TGorev_TDepartman" Association="Self.FK_TGorev_TDepartman">
+      <End Role="TDepartman" EntitySet="TDepartman" />
+      <End Role="TGorev" EntitySet="TGorev" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TGorev_TDurum" Association="Self.FK_TGorev_TDurum">
+      <End Role="TDurum" EntitySet="TDurum" />
+      <End Role="TGorev" EntitySet="TGorev" />
+    </AssociationSet>
+    <AssociationSet Name="FK_THareket_TUrun" Association="Self.FK_THareket_TUrun">
+      <End Role="TUrun" EntitySet="TUrun" />
+      <End Role="THareket" EntitySet="THareket" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TIlce_TIl" Association="Self.FK_TIlce_TIl">
+      <End Role="TIl" EntitySet="TIl" />
+      <End Role="TIlce" EntitySet="TIlce" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TKasa_TDurum" Association="Self.FK_TKasa_TDurum">
+      <End Role="TDurum" EntitySet="TDurum" />
+      <End Role="TKasa" EntitySet="TKasa" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TKur_TDurum" Association="Self.FK_TKur_TDurum">
+      <End Role="TDurum" EntitySet="TDurum" />
+      <End Role="TKur" EntitySet="TKur" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TMisafir_TDurum" Association="Self.FK_TMisafir_TDurum">
+      <End Role="TDurum" EntitySet="TDurum" />
+      <End Role="TMisafir" EntitySet="TMisafir" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TMisafir_TIl" Association="Self.FK_TMisafir_TIl">
+      <End Role="TIl" EntitySet="TIl" />
+      <End Role="TMisafir" EntitySet="TMisafir" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TMisafir_TIlce" Association="Self.FK_TMisafir_TIlce">
+      <End Role="TIlce" EntitySet="TIlce" />
+      <End Role="TMisafir" EntitySet="TMisafir" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TOda_TDurum" Association="Self.FK_TOda_TDurum">
+      <End Role="TDurum" EntitySet="TDurum" />
+      <End Role="TOda" EntitySet="TOda" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TPersonel_TDepartman" Association="Self.FK_TPersonel_TDepartman">
+      <End Role="TDepartman" EntitySet="TDepartman" />
+      <End Role="TPersonel" EntitySet="TPersonel" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TPersonel_TDurum" Association="Self.FK_TPersonel_TDurum">
+      <End Role="TDurum" EntitySet="TDurum" />
+      <End Role="TPersonel" EntitySet="TPersonel" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TPersonel_TGorev" Association="Self.FK_TPersonel_TGorev">
+      <End Role="TGorev" EntitySet="TGorev" />
+      <End Role="TPersonel" EntitySet="TPersonel" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TRezervasyon_TDurum" Association="Self.FK_TRezervasyon_TDurum">
+      <End Role="TDurum" EntitySet="TDurum" />
+      <End Role="TRezervasyon" EntitySet="TRezervasyon" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TRezervasyon_TMisafir" Association="Self.FK_TRezervasyon_TMisafir">
+      <End Role="TMisafir" EntitySet="TMisafir" />
+      <End Role="TRezervasyon" EntitySet="TRezervasyon" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TRezervasyon_TOda" Association="Self.FK_TRezervasyon_TOda">
+      <End Role="TOda" EntitySet="TOda" />
+      <End Role="TRezervasyon" EntitySet="TRezervasyon" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TTelefon_TDurum" Association="Self.FK_TTelefon_TDurum">
+      <End Role="TDurum" EntitySet="TDurum" />
+      <End Role="TTelefon" EntitySet="TTelefon" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TTelefon_TDurum1" Association="Self.FK_TTelefon_TDurum1">
+      <End Role="TDurum" EntitySet="TDurum" />
+      <End Role="TTelefon" EntitySet="TTelefon" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TUrun_TBirim" Association="Self.FK_TUrun_TBirim">
+      <End Role="TBirim" EntitySet="TBirim" />
+      <End Role="TUrun" EntitySet="TUrun" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TUrun_TDurum" Association="Self.FK_TUrun_TDurum">
+      <End Role="TDurum" EntitySet="TDurum" />
+      <End Role="TUrun" EntitySet="TUrun" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TUrun_TUrunGrup" Association="Self.FK_TUrun_TUrunGrup">
+      <End Role="TUrunGrup" EntitySet="TUrunGrup" />
+      <End Role="TUrun" EntitySet="TUrun" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TUrunGrup_TDurum" Association="Self.FK_TUrunGrup_TDurum">
+      <End Role="TDurum" EntitySet="TDurum" />
+      <End Role="TUrunGrup" EntitySet="TUrunGrup" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

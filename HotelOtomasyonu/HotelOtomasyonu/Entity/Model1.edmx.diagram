@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1b013c9d7cd04c248b4373e2bab6c7e7" Name="Diagram1" ZoomLevel="66">
+        <EntityTypeShape EntityType="HotelOtomasyonModel.TOda" Width="1.5" PointX="1" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelOtomasyonModel.TTelefon" Width="1.5" PointX="9.375" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelOtomasyonModel.TUrunGrup" Width="1.5" PointX="12.125" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HotelOtomasyonModel.TBirim" Width="1.5" PointX="1.375" PointY="1.75" />
+        <EntityTypeShape EntityType="HotelOtomasyonModel.TDepartman" Width="1.5" PointX="9.625" PointY="11.125" />
+        <EntityTypeShape EntityType="HotelOtomasyonModel.TDurum" Width="1.5" PointX="7.5" PointY="0.5" />
+        <EntityTypeShape EntityType="HotelOtomasyonModel.TGorev" Width="1.5" PointX="11.75" PointY="6.375" />
+        <EntityTypeShape EntityType="HotelOtomasyonModel.TIl" Width="1.5" PointX="4.625" PointY="1.125" />
+        <EntityTypeShape EntityType="HotelOtomasyonModel.TIlce" Width="1.5" PointX="5.875" PointY="7.875" />
+        <EntityTypeShape EntityType="HotelOtomasyonModel.TKasa" Width="1.5" PointX="9.625" PointY="8" />
+        <EntityTypeShape EntityType="HotelOtomasyonModel.TKur" Width="1.5" PointX="9.625" PointY="4.625" />
+        <EntityTypeShape EntityType="HotelOtomasyonModel.TMisafir" Width="1.5" PointX="16.125" PointY="2.875" />
+        <EntityTypeShape EntityType="HotelOtomasyonModel.TPersonel" Width="1.5" PointX="14.25" PointY="5.75" />
+        <EntityTypeShape EntityType="HotelOtomasyonModel.TUlke" Width="1.5" PointX="14.625" PointY="1.625" />
+        <AssociationConnector Association="HotelOtomasyonModel.FK_TBirim_TDurum" />
+        <AssociationConnector Association="HotelOtomasyonModel.FK_TDepartman_TDurum" />
+        <AssociationConnector Association="HotelOtomasyonModel.FK_TGorev_TDepartman" />
+        <AssociationConnector Association="HotelOtomasyonModel.FK_TPersonel_TDepartman" />
+        <AssociationConnector Association="HotelOtomasyonModel.FK_TGorev_TDurum" />
+        <AssociationConnector Association="HotelOtomasyonModel.FK_TKasa_TDurum" />
+        <AssociationConnector Association="HotelOtomasyonModel.FK_TKur_TDurum" />
+        <AssociationConnector Association="HotelOtomasyonModel.FK_TMisafir_TDurum" />
+        <AssociationConnector Association="HotelOtomasyonModel.FK_TOda_TDurum" />
+        <AssociationConnector Association="HotelOtomasyonModel.FK_TPersonel_TDurum" />
+        <AssociationConnector Association="HotelOtomasyonModel.FK_TTelefon_TDurum" />
+        <AssociationConnector Association="HotelOtomasyonModel.FK_TTelefon_TDurum1" />
+        <AssociationConnector Association="HotelOtomasyonModel.FK_TUrunGrup_TDurum" />
+        <AssociationConnector Association="HotelOtomasyonModel.FK_TPersonel_TGorev" />
+        <AssociationConnector Association="HotelOtomasyonModel.FK_TIlce_TIl" />
+        <AssociationConnector Association="HotelOtomasyonModel.FK_TMisafir_TIl" />
+        <AssociationConnector Association="HotelOtomasyonModel.FK_TMisafir_TIlce" />
+        <EntityTypeShape EntityType="HotelOtomasyonModel.TUrun" Width="1.5" PointX="18.75" PointY="1" />
+        <AssociationConnector Association="HotelOtomasyonModel.FK_TUrun_TBirim" />
+        <AssociationConnector Association="HotelOtomasyonModel.FK_TUrun_TDurum" />
+        <AssociationConnector Association="HotelOtomasyonModel.FK_TUrun_TUrunGrup" />
+        <EntityTypeShape EntityType="HotelOtomasyonModel.THareket" Width="1.5" PointX="21" PointY="1.5" />
+        <AssociationConnector Association="HotelOtomasyonModel.FK_THareket_TUrun" />
+        <EntityTypeShape EntityType="HotelOtomasyonModel.TRezervasyon" Width="1.5" PointX="18.375" PointY="5.5" />
+        <AssociationConnector Association="HotelOtomasyonModel.FK_TRezervasyon_TDurum" />
+        <AssociationConnector Association="HotelOtomasyonModel.FK_TRezervasyon_TMisafir" />
+        <AssociationConnector Association="HotelOtomasyonModel.FK_TRezervasyon_TOda" />
+        <EntityTypeShape EntityType="HotelOtomasyonModel.TKullaniciSite" Width="1.5" PointX="3.375" PointY="3.75" />
+        <EntityTypeShape EntityType="HotelOtomasyonModel.TKMesajSite" Width="1.5" PointX="0.75" PointY="8.75" />
+        <EntityTypeShape EntityType="HotelOtomasyonModel.TMesajSite" Width="1.5" PointX="3.375" PointY="10.75" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

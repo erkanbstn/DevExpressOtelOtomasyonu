@@ -1,0 +1,251 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HotelOtomasyonModelStoreContainer" CdmEntityContainer="HotelOtomasyonEntities">
+    <EntitySetMapping Name="TOda">
+      <EntityTypeMapping TypeName="HotelOtomasyonModel.TOda">
+        <MappingFragment StoreEntitySet="TOda">
+          <ScalarProperty Name="OdaID" ColumnName="OdaID" />
+          <ScalarProperty Name="OdaNo" ColumnName="OdaNo" />
+          <ScalarProperty Name="Kat" ColumnName="Kat" />
+          <ScalarProperty Name="Kapasite" ColumnName="Kapasite" />
+          <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+          <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+          <ScalarProperty Name="Durum" ColumnName="Durum" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TTelefon">
+      <EntityTypeMapping TypeName="HotelOtomasyonModel.TTelefon">
+        <MappingFragment StoreEntitySet="TTelefon">
+          <ScalarProperty Name="TelefonID" ColumnName="TelefonID" />
+          <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+          <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+          <ScalarProperty Name="Durum" ColumnName="Durum" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TUrunGrup">
+      <EntityTypeMapping TypeName="HotelOtomasyonModel.TUrunGrup">
+        <MappingFragment StoreEntitySet="TUrunGrup">
+          <ScalarProperty Name="UrunGrupID" ColumnName="UrunGrupID" />
+          <ScalarProperty Name="Ad" ColumnName="Ad" />
+          <ScalarProperty Name="Durum" ColumnName="Durum" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TBirim">
+      <EntityTypeMapping TypeName="HotelOtomasyonModel.TBirim">
+        <MappingFragment StoreEntitySet="TBirim">
+          <ScalarProperty Name="Durum" ColumnName="Durum" />
+          <ScalarProperty Name="Ad" ColumnName="Ad" />
+          <ScalarProperty Name="BirimID" ColumnName="BirimID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TDepartman">
+      <EntityTypeMapping TypeName="HotelOtomasyonModel.TDepartman">
+        <MappingFragment StoreEntitySet="TDepartman">
+          <ScalarProperty Name="Durum" ColumnName="Durum" />
+          <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+          <ScalarProperty Name="Ad" ColumnName="Ad" />
+          <ScalarProperty Name="DepartmanID" ColumnName="DepartmanID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TDurum">
+      <EntityTypeMapping TypeName="HotelOtomasyonModel.TDurum">
+        <MappingFragment StoreEntitySet="TDurum">
+          <ScalarProperty Name="DurumAd" ColumnName="DurumAd" />
+          <ScalarProperty Name="DurumID" ColumnName="DurumID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TGorev">
+      <EntityTypeMapping TypeName="HotelOtomasyonModel.TGorev">
+        <MappingFragment StoreEntitySet="TGorev">
+          <ScalarProperty Name="Durum" ColumnName="Durum" />
+          <ScalarProperty Name="Departman" ColumnName="Departman" />
+          <ScalarProperty Name="GorevAd" ColumnName="GorevAd" />
+          <ScalarProperty Name="GorevID" ColumnName="GorevID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TIl">
+      <EntityTypeMapping TypeName="HotelOtomasyonModel.TIl">
+        <MappingFragment StoreEntitySet="TIl">
+          <ScalarProperty Name="Sehir" ColumnName="Sehir" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TIlce">
+      <EntityTypeMapping TypeName="HotelOtomasyonModel.TIlce">
+        <MappingFragment StoreEntitySet="TIlce">
+          <ScalarProperty Name="Sehir" ColumnName="Sehir" />
+          <ScalarProperty Name="Ilce" ColumnName="Ilce" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TKasa">
+      <EntityTypeMapping TypeName="HotelOtomasyonModel.TKasa">
+        <MappingFragment StoreEntitySet="TKasa">
+          <ScalarProperty Name="Durum" ColumnName="Durum" />
+          <ScalarProperty Name="Cikan" ColumnName="Cikan" />
+          <ScalarProperty Name="Giren" ColumnName="Giren" />
+          <ScalarProperty Name="Bakiye" ColumnName="Bakiye" />
+          <ScalarProperty Name="KasaAd" ColumnName="KasaAd" />
+          <ScalarProperty Name="KasaID" ColumnName="KasaID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TKur">
+      <EntityTypeMapping TypeName="HotelOtomasyonModel.TKur">
+        <MappingFragment StoreEntitySet="TKur">
+          <ScalarProperty Name="Durum" ColumnName="Durum" />
+          <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+          <ScalarProperty Name="Deger" ColumnName="Deger" />
+          <ScalarProperty Name="Sembol" ColumnName="Sembol" />
+          <ScalarProperty Name="Ad" ColumnName="Ad" />
+          <ScalarProperty Name="KurID" ColumnName="KurID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TMisafir">
+      <EntityTypeMapping TypeName="HotelOtomasyonModel.TMisafir">
+        <MappingFragment StoreEntitySet="TMisafir">
+          <ScalarProperty Name="Durum" ColumnName="Durum" />
+          <ScalarProperty Name="Ilce" ColumnName="Ilce" />
+          <ScalarProperty Name="Sehir" ColumnName="Sehir" />
+          <ScalarProperty Name="Ulke" ColumnName="Ulke" />
+          <ScalarProperty Name="KimlikFoto2" ColumnName="KimlikFoto2" />
+          <ScalarProperty Name="KimlikFoto1" ColumnName="KimlikFoto1" />
+          <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+          <ScalarProperty Name="Adres" ColumnName="Adres" />
+          <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+          <ScalarProperty Name="Mail" ColumnName="Mail" />
+          <ScalarProperty Name="TC" ColumnName="TC" />
+          <ScalarProperty Name="Ad" ColumnName="Ad" />
+          <ScalarProperty Name="MisafirID" ColumnName="MisafirID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TPersonel">
+      <EntityTypeMapping TypeName="HotelOtomasyonModel.TPersonel">
+        <MappingFragment StoreEntitySet="TPersonel">
+          <ScalarProperty Name="Durum" ColumnName="Durum" />
+          <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+          <ScalarProperty Name="Yetki" ColumnName="Yetki" />
+          <ScalarProperty Name="KimlikArka" ColumnName="KimlikArka" />
+          <ScalarProperty Name="KimlikOn" ColumnName="KimlikOn" />
+          <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+          <ScalarProperty Name="Gorev" ColumnName="Gorev" />
+          <ScalarProperty Name="Departman" ColumnName="Departman" />
+          <ScalarProperty Name="CikisTarih" ColumnName="CikisTarih" />
+          <ScalarProperty Name="GirisTarih" ColumnName="GirisTarih" />
+          <ScalarProperty Name="Mail" ColumnName="Mail" />
+          <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+          <ScalarProperty Name="Adres" ColumnName="Adres" />
+          <ScalarProperty Name="TC" ColumnName="TC" />
+          <ScalarProperty Name="Personel" ColumnName="Personel" />
+          <ScalarProperty Name="PersonelID" ColumnName="PersonelID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TUlke">
+      <EntityTypeMapping TypeName="HotelOtomasyonModel.TUlke">
+        <MappingFragment StoreEntitySet="TUlke">
+          <ScalarProperty Name="UlkeAd" ColumnName="UlkeAd" />
+          <ScalarProperty Name="UlkeID" ColumnName="UlkeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TUrun">
+      <EntityTypeMapping TypeName="HotelOtomasyonModel.TUrun">
+        <MappingFragment StoreEntitySet="TUrun">
+          <ScalarProperty Name="Durum" ColumnName="Durum" />
+          <ScalarProperty Name="Kdv" ColumnName="Kdv" />
+          <ScalarProperty Name="Toplam" ColumnName="Toplam" />
+          <ScalarProperty Name="Fiyat" ColumnName="Fiyat" />
+          <ScalarProperty Name="Birim" ColumnName="Birim" />
+          <ScalarProperty Name="UrunGrup" ColumnName="UrunGrup" />
+          <ScalarProperty Name="Urun" ColumnName="Urun" />
+          <ScalarProperty Name="UrunID" ColumnName="UrunID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="THareket">
+      <EntityTypeMapping TypeName="HotelOtomasyonModel.THareket">
+        <MappingFragment StoreEntitySet="THareket">
+          <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+          <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+          <ScalarProperty Name="Miktar" ColumnName="Miktar" />
+          <ScalarProperty Name="HareketTur" ColumnName="HareketTur" />
+          <ScalarProperty Name="Urun" ColumnName="Urun" />
+          <ScalarProperty Name="HareketID" ColumnName="HareketID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TRezervasyon">
+      <EntityTypeMapping TypeName="HotelOtomasyonModel.TRezervasyon">
+        <MappingFragment StoreEntitySet="TRezervasyon">
+          <ScalarProperty Name="Kisi4" ColumnName="Kisi4" />
+          <ScalarProperty Name="Kisi3" ColumnName="Kisi3" />
+          <ScalarProperty Name="Kisi2" ColumnName="Kisi2" />
+          <ScalarProperty Name="Durum" ColumnName="Durum" />
+          <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+          <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+          <ScalarProperty Name="RezervasyonKisi" ColumnName="RezervasyonKisi" />
+          <ScalarProperty Name="Oda" ColumnName="Oda" />
+          <ScalarProperty Name="Kisi" ColumnName="Kisi" />
+          <ScalarProperty Name="CikisTarih" ColumnName="CikisTarih" />
+          <ScalarProperty Name="GirisTarih" ColumnName="GirisTarih" />
+          <ScalarProperty Name="Misafir" ColumnName="Misafir" />
+          <ScalarProperty Name="RezervasyonID" ColumnName="RezervasyonID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TKullaniciSite">
+      <EntityTypeMapping TypeName="HotelOtomasyonModel.TKullaniciSite">
+        <MappingFragment StoreEntitySet="TKullaniciSite">
+          <ScalarProperty Name="Parola" ColumnName="Parola" />
+          <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="İsim" ColumnName="İsim" />
+          <ScalarProperty Name="KullaniciID" ColumnName="KullaniciID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TKMesajSite">
+      <EntityTypeMapping TypeName="HotelOtomasyonModel.TKMesajSite">
+        <MappingFragment StoreEntitySet="TKMesajSite">
+          <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+          <ScalarProperty Name="Mesaj" ColumnName="Mesaj" />
+          <ScalarProperty Name="Konu" ColumnName="Konu" />
+          <ScalarProperty Name="Gonderen" ColumnName="Gonderen" />
+          <ScalarProperty Name="Alici" ColumnName="Alici" />
+          <ScalarProperty Name="MesajID" ColumnName="MesajID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TMesajSite">
+      <EntityTypeMapping TypeName="HotelOtomasyonModel.TMesajSite">
+        <MappingFragment StoreEntitySet="TMesajSite">
+          <ScalarProperty Name="Mesaj" ColumnName="Mesaj" />
+          <ScalarProperty Name="Konu" ColumnName="Konu" />
+          <ScalarProperty Name="Mail" ColumnName="Mail" />
+          <ScalarProperty Name="Gonderen" ColumnName="Gonderen" />
+          <ScalarProperty Name="MesajID" ColumnName="MesajID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="OdaDurum" FunctionName="HotelOtomasyonModel.Store.OdaDurum">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="HotelOtomasyonModel.OdaDurum_Result">
+          <ScalarProperty Name="DurumAd" ColumnName="DurumAd" />
+          <ScalarProperty Name="Sayı" ColumnName="Sayı" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>
